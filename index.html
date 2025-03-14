@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salady</title>
+    <link href="https://fonts.cdnfonts.com/css/mont?styles=21819" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/salady.css">
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        window.onload = () => {
+            //메뉴 버튼
+            let menuBtn = document.querySelector('.menu_btn');
+            let allMenu = document.querySelector('.hav');
+
+            menuBtn.addEventListener('click', () => {
+                allMenu.classList.toggle('active');
+            });
+
+            //메인비주얼
+            var meSwiper = new Swiper(".meSwiper", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+
+            //고정 버튼
+            let fixedBtn = document.querySelector('.fixed_btn');
+            let Menu = document.querySelector('.title');
+
+            fixedBtn.addEventListener('click', () => {
+                Menu.classList.toggle('active');
+            });
+
+            var mySwiper = new Swiper(".mySwiper", {
+                slidesPerView: 4,
+                spaceBetween: 30,
+                loop: true,
+            });
+
+            //search
+            AOS.init();
+
+            //event
+            var myswiper = new Swiper(".myswiper", {
+                loop: true,
+                watchSlidesProgress: true,
+                slidesPerView: 5,
+                spaceBetween: 30,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+            });
+
+            // instagram
+            const scrollToTopButton = document.querySelector('#scrollToTop'); // 버튼 ID 선택
+
+            // 스크롤 이벤트로 버튼 표시/숨기기
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) { // 스크롤이 300px 이상일 때
+                    scrollToTopButton.style.display = 'block'; // 버튼 표시
+                } else {
+                    scrollToTopButton.style.display = 'block'; // 버튼 숨김
+                }
+            });
+
+            // 버튼 클릭 이벤트로 페이지 맨 위로 스크롤
+            scrollToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth', // 부드럽게 스크롤
+                });
+            });
+        };
+    </script>
+
+</head>
+
+<body>
+    <div class="wrap">
+
+        <header class="header">
+            <div class="inner">
+                <h1 class="logo">
+                    <a href="#"><img src="img/logo.png" alt=""></a>
+                </h1><!-- .logo end -->
+                <nav class="nav">
+                    <ul class="gnb">
+                        <li>
+                            <a href="#" class="depth-01">브랜드</a>
+                            <ul class="depth-02">
+                                <li><a href="#">샐러디</a></li>
+                                <li><a href="#">샐러디 키친</a></li>
+                                <li><a href="#">샐러디팜</a></li>
+                                <li><a href="#">샐러디 채소</a></li>
+                                <li><a href="#">친환경 캠페인</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">메뉴</a>
+                            <ul class="depth-02">
+                                <li><a href="#">ALL</a></li>
+                                <li><a href="#">샐러디</a></li>
+                                <li><a href="#">포케볼</a></li>
+                                <li><a href="#">누들볼</a></li>
+                                <li><a href="#">프로틴 박스</a></li>
+                                <li><a href="#">랩&샌드</a></li>
+                                <li><a href="#">토핑&드레싱</a></li>
+                                <li><a href="#">음료&사이드</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">영양 정보</a>
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">APP</a>
+                            <ul class="depth-02">
+                                <li><a href="#">샐러디 멤버십</a></li>
+                                <li><a href="#">샐러디 오더</a></li>
+                                <li><a href="#">기프트 카드</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">매장</a>
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">프랜차이즈</a>
+                            <ul class="depth-02">
+                                <li><a href="#">가맹 안내</a></li>
+                                <li><a href="#">추천 입지</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">새소식</a>
+                            <ul class="depth-02">
+                                <li><a href="#">공지사항</a></li>
+                                <li><a href="#">이벤트</a></li>
+                                <li><a href="#">칭찬매장</a></li>
+                                <li><a href="#">FAQ</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                    </ul><!-- .gnb end -->
+                </nav><!-- .nav end -->
+                <button class="menu_btn">
+                    <img src="img/hamburger.png" alt="">
+                </button><!-- .menu_btn end -->
+                <nav class="hav">
+                    <ul class="lnb">
+                        <li>
+                            <a href="#" class="depth-01">브랜드</a>
+                            <ul class="depth-02">
+                                <li><a href="#">샐러디</a></li>
+                                <li><a href="#">샐러디 키친</a></li>
+                                <li><a href="#">샐러디팜</a></li>
+                                <li><a href="#">샐러디 채소</a></li>
+                                <li><a href="#">친환경 캠페인</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">메뉴</a>
+                            <ul class="depth-02">
+                                <li><a href="#">ALL</a></li>
+                                <li><a href="#">샐러디</a></li>
+                                <li><a href="#">포케볼</a></li>
+                                <li><a href="#">누들볼</a></li>
+                                <li><a href="#">프로틴 박스</a></li>
+                                <li><a href="#">랩&샌드</a></li>
+                                <li><a href="#">토핑&드레싱</a></li>
+                                <li><a href="#">음료&사이드</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">영양 정보</a>
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">APP</a>
+                            <ul class="depth-02">
+                                <li><a href="#">샐러디 멤버십</a></li>
+                                <li><a href="#">샐러디 오더</a></li>
+                                <li><a href="#">기프트 카드</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">매장</a>
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">프랜차이즈</a>
+                            <ul class="depth-02">
+                                <li><a href="#">가맹 안내</a></li>
+                                <li><a href="#">추천 입지</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">새소식</a>
+                            <ul class="depth-02">
+                                <li><a href="#">공지사항</a></li>
+                                <li><a href="#">이벤트</a></li>
+                                <li><a href="#">칭찬매장</a></li>
+                                <li><a href="#">FAQ</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                    </ul><!-- .gnb end -->
+                </nav><!-- .nav end -->
+            </div><!-- .inner end -->
+        </header><!-- .header end -->
+
+        <div class="main">
+            <div class="main_visual">
+                <h1>EAT BETTER BE BETTER TASTES BETTER</h1>
+                <div class="box">
+                    <div class="video">
+                        <video src="img/main_visual.mp4" autoplay muted loop></video>
+                        <div class="gradient-overlay"></div>
+                    </div><!-- .video end -->
+
+                    <!-- Swiper -->
+                    <div class="swiper meSwiper">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide">
+                                <div class="image">
+                                    <img src="img/main_grid3.png" alt="">
+                                </div><!-- .image end -->
+                            </div><!-- .swiper-slide end -->
+
+                            <div class="swiper-slide">
+                                <div class="image">
+                                    <img src="img/main_grid2.png" alt="">
+                                </div><!-- .image end -->
+                            </div><!-- .swiper-slide end -->
+
+                            <div class="swiper-slide">
+                                <div class="image">
+                                    <img src="img/main_grid.png" alt="">
+                                </div><!-- .image end -->
+                            </div><!-- .swiper-slide end -->
+
+                            <div class="swiper-slide">
+                                <div class="image">
+                                    <img src="img/main_grid4.png" alt="">
+                                </div><!-- .image end -->
+                            </div><!-- .swiper-slide end -->
+
+                        </div><!-- .swiper-wrapper end -->
+                        <div class="swiper-pagination"></div>
+                        <img src="img/Asset 1.png" alt="">
+                    </div><!-- .swiper mySwiper end -->
+
+                </div><!-- .box end -->
+            </div><!-- .main_visual end -->
+        </div><!-- .main end -->
+
+        <div class="fixed">
+
+            <div class="item_wrap">
+
+                <div class="item">
+                    <button class="fixed_btn">
+                        <img src="img/가맹 button.png" alt="">
+                    </button><!-- .fixed_btn end -->
+                </div><!-- .item -->
+
+                <div class="item" id="scrollToTop">
+                    <img src="img/up button.png" alt="Up Button">
+                </div><!-- .item end -->
+
+            </div><!-- .item_wrap end -->
+
+            <div class="title">
+                <div class="icon">
+                    <a href="#"><img src="img/fixed-01.png" alt=""></a>
+                    <a href="#"><img src="img/fixed-02.png" alt=""></a>
+                    <a href="#"><img src="img/fixed-03.png" alt=""></a>
+                </div><!-- .icon end -->
+                <div class="text">
+                    <a href="#">
+                        <p>가맹문의</p>
+                    </a>
+                    <a href="#">
+                        <p>가맹설명회</p>
+                    </a>
+                    <a href="#">
+                        <p>문의하기</p>
+                    </a>
+                </div><!-- .text end -->
+            </div><!-- .title end -->
+
+        </div><!-- .fixed end -->
+
+        <div class="section-01">
+            <div class="text" data-aos="fade-up" data-aos-duration="1000">
+                <h2>BEST MENU</h2>
+                <img src="img/Star 1.jpg" alt="">
+            </div><!-- .text end -->
+
+            <ul class="button" data-aos="fade-up" data-aos-duration="1300">
+                <li><a href="#">샐러디&포케볼</a></li>
+                <li><a href="#">랩&샌드</a></li>
+                <li><a href="#">프로틴박스</a></li>
+            </ul><!-- .button end -->
+
+            <div class="item_wrap">
+
+                <div class="item" data-aos="fade-up" data-aos-duration="1400">
+                    <img src="img/3731617857_1Pkm3BRU_e9246b1147dec683d1fe1ca6c1bc2d80ec0ba1f9.png" alt="">
+                    <div class="text">
+                        <strong>로스트닭다리살 샐러디</strong>
+                        <p>Roast Chicken Thigh Salady</p>
+                    </div><!-- .text end -->
+                </div><!-- .item end -->
+
+                <div class="item" data-aos="fade-up" data-aos-duration="1800">
+                    <img src="img/3731617857_8Y4ZyJS9_47847f7fcbe9b51cc67b42a5240f7a4aa6d6060c.png" alt="">
+                    <div class="text">
+                        <strong>그라브락스 연어 샐러디</strong>
+                        <p>Gravlax Salmon Salady</p>
+                    </div><!-- .text end -->
+                </div><!-- .item end -->
+
+                <div class="item" data-aos="fade-up" data-aos-duration="2200">
+                    <img src="img/3731617857_W9GolgRq_39d0a523ee0eb65d4ef710081187e2413a5ac849.png" alt="">
+                    <div class="text">
+                        <strong>우삼겹메밀면 누들면</strong>
+                        <p>Beef Loin Buckwheat Noodles <br />
+                            Noodle Bowl</p>
+                    </div><!-- .text end -->
+                </div><!-- .item end -->
+
+                <div class="item" data-aos="fade-up" data-aos-duration="2600">
+                    <img src="img/3731617857_DtxodPSe_7007b001c8259c44dc7ffc1a4ab1fb639fe30f10.png" alt="">
+                    <div class="text">
+                        <strong>칠리베이컨 포케볼</strong>
+                        <p>Chilli Bacon Poke Bowl</p>
+                    </div><!-- .text end -->
+                </div><!-- .item end -->
+
+                <div class="item" data-aos="fade-up" data-aos-duration="3000">
+                    <img src="img/3731617857_gFVZcQHM_9dea83f2b1742df2f445c88351926276380ddeb2.png" alt="">
+                    <div class="text">
+                        <strong>그라브락스 연어 포케볼</strong>
+                        <p>Gravlax Salmon Poke Bowl</p>
+                    </div><!-- .text end -->
+                </div><!-- .item end -->
+
+            </div><!-- .item_wrap end -->
+        </div><!-- .section-01 end -->
+
+        <div class="section-02">
+            <div class="item_wrap">
+
+                <div class="item">
+                    <div class="box">
+                        <div class="text" data-aos="fade-right" data-aos-duration="1000">
+                            <h3>SALADY BRAND <br /> STORY</h3>
+                            <p>앞으로 더 맛있고 건강한 메뉴들로 보다 많은 사람들에게<br />
+                                즐거움과 건강함을 선사하는 브랜드가 되겠습니다.</p>
+                        </div><!-- .text end -->
+                        <div class="button" data-aos="fade-right" data-aos-duration="1000">
+                            <a href=""><span>샐러디 브랜드 소개</span></a>
+                        </div><!-- .button -->
+                    </div><!-- .box end -->
+                    <img src="img/section-02_1.png" alt="" data-aos="fade-left" data-aos-duration="2000">
+                </div><!-- .item end -->
+
+                <div class="item">
+                    <img src="img/section-02_2.png" alt="" data-aos="fade-up" data-aos-duration="2000">
+                    <div class="box">
+                        <div class="text" data-aos="fade-up" data-aos-duration="800">
+                            <h3>NO.1 BRAND <br /> SALADY</h3>
+                            <p>샐러디는 매출로 브랜드 파워를 <br /> 입증하고 있습니다.</p>
+                        </div><!-- .text end -->
+                        <div class="button" data-aos="fade-up" data-aos-duration="1000">
+                            <a href=""><span>프랜차이즈 가맹 안내</span></a>
+                        </div><!-- .button -->
+                    </div><!-- .box end -->
+                </div><!-- .item end -->
+
+                <div class="item">
+                    <div class="box">
+                        <div class="text" data-aos="fade-left" data-aos-duration="800">
+                            <h3>DOWNLOAD <br /> SALADY APP</h3>
+                            <p>샐러디 앱을 설치하여 더 다양한 이벤트와 혜택을 <br />
+                                누려보세요.</p>
+                        </div><!-- .text end -->
+                        <div class="button" data-aos="fade-left" data-aos-duration="1000">
+                            <a href=""><span>샐러디 어플 안내</span></a>
+                        </div><!-- .button -->
+                    </div><!-- .box end -->
+                    <img src="img/section-02_3.png" alt="" data-aos="fade-left" data-aos-duration="2000">
+                </div><!-- .item end -->
+
+            </div><!-- .item_wrap end -->
+        </div><!-- .section-02 end -->
+
+        <div class="section-03" data-aos="fade-up" data-aos-duration="1000">
+            <img src="img/Rectangle 25.jpg" alt="" data-aos="zoom-out">
+            <div class="text">
+                <img src="img/Star 2.png" alt="">
+                <h4>Search Store</h4>
+                <p>가까운 샐러디 매장을 검색해보세요!</p>
+                <div class="search">
+                    <span>매장 찾기 바로가기</span>
+                    <a href="#"><img src="img/search.png" alt=""></a>
+                </div><!-- .search end -->
+            </div><!-- .text end -->
+
+        </div><!-- .section-03 end -->
+
+        <div class="event" data-aos="fade-up" data-aos-duration="1000">
+            <div class="title">
+                <h5>EVENT</h5>
+                <img src="img/Star 1.jpg" alt="">
+            </div><!-- .title end -->
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="image">
+                            <img src="img/4.png" alt="">
+                        </div><!-- .image end -->
+                        <p>#샐러디 #이벤트 with 신메뉴</p>
+                    </div><!-- .swiper-slide end -->
+
+                    <div class="swiper-slide">
+                        <div class="image">
+                            <img src="img/5.png" alt="">
+                        </div><!-- .image end -->
+                        <p>#샐러디 #이벤트 with 신메뉴</p>
+                    </div><!-- .swiper-slide end -->
+
+                    <div class="swiper-slide">
+                        <div class="image">
+                            <img src="img/6.png" alt="">
+                        </div><!-- .image end -->
+                        <p>새롭게 장만 #누들볼 카테고리</p>
+                    </div><!-- .swiper-slide end -->
+
+                    <div class="swiper-slide">
+                        <div class="image">
+                            <img src="img/7.png" alt="">
+                        </div><!-- .image end -->
+                        <p>멕시칸 랩 시리즈 2,200원 할인</p>
+                    </div><!-- .swiper-slide end -->
+
+                    <div class="swiper-slide">
+                        <div class="image">
+                            <img src="img/8.png" alt="">
+                        </div><!-- .image end -->
+                        <p>단백질 최대 43g! 프로틴 팩 이벤트</p>
+                    </div><!-- .swiper-slide end -->
+
+                    <div class="swiper-slide">
+                        <div class="image">
+                            <img src="img/9.png" alt="">
+                        </div><!-- .image end -->
+                        <p>10주년 기념 베이글 샌드위치 한정 판매</p>
+                    </div><!-- .swiper-slide end -->
+
+                </div><!-- .swiper-wrapper end -->
+            </div><!-- .swiper mySwiper end -->
+
+            <div class="insta_btn">
+                <a href="#"><span>이벤트 더보기</span></a>
+            </div>
+
+        </div><!-- .event end -->
+
+        <div class="instagram" data-aos="fade-up" data-aos-duration="1000">
+            <div class="title">
+                <a href="https://www.instagram.com/saladykorea/">
+                    <img src="img/insta.png" alt="">
+                </a>
+                <h6>@saladykorea</h6>
+            </div><!-- .title end -->
+
+            <div class="button">
+                <button class="insta_btn">
+                    <img src="img/insta btn-01.png" alt="">
+                </button><!-- .insta_btn end -->
+
+                <button class="Insta_btn">
+                    <img src="img/insta btn-02.png" alt="">
+                </button><!-- .insta_btn end -->
+            </div><!-- .button end -->
+
+            <div class="rectangle-1"></div>
+            <div class="rectangle-2"></div>
+
+            <!-- Swiper -->
+            <div class="swiper myswiper">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="image">
+                            <img src="img/insta 1.png" alt="">
+                        </div><!-- .image end -->
+                    </div><!-- .swiper-slide end -->
+
+                    <div class="swiper-slide">
+                        <div class="image">
+                            <img src="img/insta 2.png" alt="">
+                        </div><!-- .image end -->
+                    </div><!-- .swiper-slide end -->
+
+                    <div class="swiper-slide">
+                        <div class="image">
+                            <img src="img/insta 3.png" alt="">
+                        </div><!-- .image end -->
+                    </div><!-- .swiper-slide end -->
+
+                    <div class="swiper-slide">
+                        <div class="image">
+                            <img src="img/insta 4.png" alt="">
+                        </div><!-- .image end -->
+                    </div><!-- .swiper-slide end -->
+
+                    <div class="swiper-slide">
+                        <div class="image">
+                            <img src="img/insta 5.png" alt="">
+                        </div><!-- .image end -->
+                    </div><!-- .swiper-slide end -->
+
+                    <div class="swiper-slide">
+                        <div class="image">
+                            <img src="img/insta 6.png" alt="">
+                        </div><!-- .image end -->
+                    </div><!-- .swiper-slide end -->
+
+                    <div class="swiper-slide">
+                        <div class="image">
+                            <img src="img/insta 7.png" alt="">
+                        </div><!-- .image end -->
+                    </div><!-- .swiper-slide end -->
+
+                    <div class="swiper-slide">
+                        <div class="image">
+                            <img src="img/insta 8.png" alt="">
+                        </div><!-- .image end -->
+                    </div><!-- .swiper-slide end -->
+
+                </div><!-- .swiper-wrapper end -->
+            </div><!-- .swiper myswiper end -->
+
+        </div><!-- .instagram end -->
+
+        <div class="notice">
+            <div class="item_wrap">
+
+                <div class="contents">
+                    <div class="title">
+                        <h6>Notice</h6>
+                        <div class="button">
+                            <a href="#">
+                                <P>더보기+</P>
+                            </a>
+                        </div><!-- .button end -->
+                    </div><!-- .title end -->
+                    <hr class='hr-solid' />
+                    <div class="item">
+                        <div class="text-01">
+                            <ul>
+                                <a href="">
+                                    <li>(공지) 메뉴 개편 사항 안내</li>
+                                </a>
+                                <a href="">
+                                    <li>(공지) 스탬프 및 쿠폰 사용 조건 변경 안내</li>
+                                </a>
+                                <a href="">
+                                    <li>(공지) 샐러디 멤버십 일부 혜택 조건 변경 안내</li>
+                                </a>
+                            </ul>
+                        </div><!-- .text-01 end -->
+                        <div class="text-02">
+                            <ul>
+                                <li>25.01.31</li>
+                                <li>24.05.27</li>
+                                <li>24.01.22</li>
+                            </ul>
+                        </div><!-- .text-01 end -->
+                    </div><!-- .item end -->
+                </div><!-- .contents end -->
+
+                <div class="contents">
+                    <div class="title">
+                        <h6>News</h6>
+                        <div class="button">
+                            <a href="#">
+                                <P>더보기+</P>
+                            </a>
+                        </div><!-- .button end -->
+                    </div><!-- .title end -->
+                    <hr class='hr-solid' />
+                    <div class="item">
+                        <div class="text-01">
+                            <ul>
+                                <a href="">
+                                    <li>샐러디, 새해 웰에이징 트렌드 겨냥 신메뉴 8종 출시</li>
+                                </a>
+                                <a href="">
+                                    <li>샐러디, 다운타우너 인수로 건강식과 트렌드의 새로운 시너지 창출</li>
+                                </a>
+                                <a href="">
+                                    <li>샐러디, 젊은 세대 겨울철 ‘저속노화’ 비결로 ‘샐러드’ 제안</li>
+                                </a>
+                            </ul>
+                        </div><!-- .text-01 end -->
+                        <div class="text-02">
+                            <ul>
+                                <li>25.02.11</li>
+                                <li>25.01.21</li>
+                                <li>25.01.17</li>
+                            </ul>
+                        </div><!-- .text-01 end -->
+                    </div><!-- .item end -->
+                </div><!-- .contents end -->
+
+            </div><!-- .item_wrap end -->
+        </div><!-- .notice end -->
+
+        <div class="footer">
+            <div class="item_wrap">
+
+                <div class="item">
+                    <img src="img/SALADY text.png" alt="">
+                    <div class="text">
+                        <p>개인정보처리방침 ㅣ 서비스이용약관<br />
+                            회사명 : ㈜샐러디 사업자등록번호 : 681-86-00031</p>
+                        <span> COPYRIGHT(C) 2022 ㈜샐러디. CO.LTD ALL RIGHT RESERVED.</span>
+                    </div><!-- .text end -->
+                </div><!-- .item end -->
+
+                <div class="logo_btn">
+                    <div class="item">
+                        <button class="footer_btn">
+                            <a href="https://www.instagram.com/saladykorea/"><img src="img/인스타 로고.png" alt=""></a>
+                        </button><!-- .insta_btn end -->
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <button class="footer_btn">
+                            <a href="https://www.facebook.com/saladykorea/?locale=ko_KR"><img src="img/페이스북 로고.png"
+                                    alt=""></a>
+                        </button><!-- .insta_btn end -->
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <button class="footer_btn">
+                            <a href="https://pf.kakao.com/_xhmxnJu"><img src="img/카톡 로고.png" alt=""></a>
+                        </button><!-- .insta_btn end -->
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <button class="footer_btn">
+                            <a href="https://www.youtube.com/@salady9151"><img src="img/유튜브 로고.png" alt=""></a>
+                        </button><!-- .insta_btn end -->
+                    </div><!-- .item end -->
+                </div><!-- .logo_btn end -->
+
+
+            </div><!-- .item_wrap end -->
+        </div><!-- .footer -->
+
+    </div><!-- .wrap end -->
+</body>
+
+</html>
